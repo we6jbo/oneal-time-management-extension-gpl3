@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Time Management by O'Neal",
+  "version": "1.0.2",
+  "description": "Times a detailed or condensed workflow, saves local task records, and creates a ChatGPT-ready improvement report. Workflow text is stored encrypted in source.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "service_worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "O'Neal Time Manager",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

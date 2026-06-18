@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>O'Neal Time Manager</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>O'Neal Time Manager</h1>
+    <p>Detailed workflow timer and ChatGPT export helper.</p>
+  </header>
+
+  <section class="card">
+    <label for="mode">Mode</label>
+    <select id="mode">
+      <option value="condensed">Condensed. Only [condensed] steps are timed.</option>
+      <option value="detailed">Detailed. Every step is timed.</option>
+    </select>
+
+    <label for="manualDateTime">Current date/time</label>
+    <div class="row">
+      <input id="manualDateTime" type="datetime-local">
+      <button id="useNow" type="button">Use now</button>
+    </div>
+    <p class="small">The extension guesses this from your computer. You can override it before starting.</p>
+
+    <button id="openPage" type="button">Open workflow page</button>
+    <button id="startSession" type="button" class="primary">Start new timed session</button>
+  </section>
+
+  <section class="card">
+    <h2>Current step</h2>
+    <p id="currentStep">No session running.</p>
+    <p id="timer">00:00:00</p>
+    <div class="row">
+      <button id="finishStep" type="button">Finish step</button>
+      <button id="skipStep" type="button">Skip</button>
+      <button id="pauseStep" type="button">Pause timer</button>
+    </div>
+    <p id="pauseStatus" class="small">Timer is running when a session is active.</p>
+    <button id="endSession" type="button">End session</button>
+  </section>
+
+  <section class="card">
+    <h2>Export</h2>
+    <button id="copyChatGPT" type="button">Copy ChatGPT report</button>
+    <button id="downloadJson" type="button">Download JSON</button>
+    <button id="resetSession" type="button" class="danger">Reset active session</button>
+    <textarea id="exportBox" placeholder="ChatGPT report will appear here."></textarea>
+  </section>
+
+  <section class="card">
+    <h2>Speed-up suggestions</h2>
+    <div id="suggestions"></div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
