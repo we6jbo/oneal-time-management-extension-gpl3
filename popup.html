@@ -1,61 +1,59 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>O'Neal Time Manager</title>
+  <title>Time Management by O'Neal</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <header>
-    <h1>O'Neal Time Manager</h1>
-    <p>Detailed workflow timer and ChatGPT export helper.</p>
+    <h1>Time Management by O'Neal</h1>
+    <p>Fall 2026 workflow timer. Local only.</p>
   </header>
-
   <section class="card">
-    <label for="mode">Mode</label>
-    <select id="mode">
-      <option value="condensed">Condensed. Only [condensed] steps are timed.</option>
-      <option value="detailed">Detailed. Every step is timed.</option>
-    </select>
-
-    <label for="manualDateTime">Current date/time</label>
-    <div class="row">
-      <input id="manualDateTime" type="datetime-local">
-      <button id="useNow" type="button">Use now</button>
+    <h2>Session setup</h2>
+    <label>Mode
+      <select id="mode">
+        <option value="core">Core timed steps only</option>
+        <option value="detailed">Detailed: every step timed</option>
+      </select>
+    </label>
+    <div class="grid">
+      <label>Date<input id="manualDate" type="date"></label>
+      <label>Hour code<select id="hourCode"></select></label>
+      <label>Minute<input id="minute" type="number" min="0" max="59" step="1"></label>
     </div>
-    <p class="small">The extension guesses this from your computer. You can override it before starting.</p>
-
-    <button id="openPage" type="button">Open workflow page</button>
-    <button id="startSession" type="button" class="primary">Start new timed session</button>
+    <p class="hint" id="decodedTimeHint">Detected time will appear here.</p>
+    <div class="actions">
+      <button id="useNow">Use detected current date/time</button>
+      <button id="openPage">Open workflow page</button>
+      <button id="startSession" class="primary">Start session</button>
+    </div>
   </section>
-
-  <section class="card">
+  <section class="card active">
     <h2>Current step</h2>
-    <p id="currentStep">No session running.</p>
-    <p id="timer">00:00:00</p>
-    <div class="row">
-      <button id="finishStep" type="button">Finish step</button>
-      <button id="skipStep" type="button">Skip</button>
-      <button id="pauseStep" type="button">Pause timer</button>
+    <div id="currentStep" class="stepText">No session running.</div>
+    <div id="timer" class="timer">00:00:00</div>
+    <p id="pauseStatus" class="hint">Timer is running when a session is active.</p>
+    <div class="actions">
+      <button id="pauseStep">Pause timer</button>
+      <button id="finishStep" class="primary">Finish step</button>
+      <button id="skipStep">Skip step</button>
+      <button id="endSession">End session</button>
     </div>
-    <p id="pauseStatus" class="small">Timer is running when a session is active.</p>
-    <button id="endSession" type="button">End session</button>
   </section>
-
+  <section class="card"><h2>Progress</h2><div id="progressList" class="progressList"></div></section>
+  <section class="card"><h2>Speed-up notes</h2><div id="suggestions"></div></section>
   <section class="card">
     <h2>Export</h2>
-    <button id="copyChatGPT" type="button">Copy ChatGPT report</button>
-    <button id="downloadJson" type="button">Download JSON</button>
-    <button id="resetSession" type="button" class="danger">Reset active session</button>
-    <textarea id="exportBox" placeholder="ChatGPT report will appear here."></textarea>
+    <textarea id="exportBox" placeholder="Your ChatGPT-ready report will appear here."></textarea>
+    <div class="actions">
+      <button id="copyChatGPT" class="primary">Copy ChatGPT report</button>
+      <button id="downloadJson">Download local JSON</button>
+      <button id="resetSession">Reset active session</button>
+      <button id="resetConfig">Reset workflow config</button>
+    </div>
   </section>
-
-  <section class="card">
-    <h2>Speed-up suggestions</h2>
-    <div id="suggestions"></div>
-  </section>
-
   <script src="popup.js"></script>
 </body>
 </html>

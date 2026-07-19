@@ -1,23 +1,25 @@
-:root { font-family: Arial, Helvetica, sans-serif; }
-body { width: 430px; margin: 0; background: #f6f7fb; color: #1f2937; }
-header { padding: 14px 16px; background: #ffffff; border-bottom: 1px solid #ddd; }
-h1 { font-size: 18px; margin: 0 0 4px; }
-h2 { font-size: 15px; margin: 0 0 8px; }
-p { margin: 4px 0; }
-.card { margin: 10px; padding: 12px; background: white; border: 1px solid #ddd; border-radius: 10px; }
-label { display: block; font-weight: 700; margin-top: 8px; margin-bottom: 4px; }
-select, input, textarea { box-sizing: border-box; width: 100%; padding: 8px; border: 1px solid #c7c7c7; border-radius: 6px; }
-textarea { height: 160px; margin-top: 8px; font-size: 12px; }
-button { cursor: pointer; border: 1px solid #9ca3af; background: #fff; border-radius: 6px; padding: 8px 10px; margin: 4px 4px 4px 0; }
-button.primary { background: #1f2937; color: white; }
-button.danger { border-color: #b91c1c; color: #b91c1c; }
-.row { display: flex; gap: 6px; align-items: center; }
-.row input { flex: 1; }
-.row button { white-space: nowrap; }
-.small { font-size: 12px; color: #4b5563; }
-#timer { font-size: 24px; font-weight: 700; }
-.suggestion { border-top: 1px solid #eee; padding-top: 8px; margin-top: 8px; }
-.suggestion strong { display: block; }
-
-button.paused { background: #f3f4f6; border-color: #4b5563; font-weight: 700; }
-#pauseStatus.paused { color: #92400e; font-weight: 700; }
+:root { color-scheme: light dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { width: 430px; margin: 0; padding: 14px; background: Canvas; color: CanvasText; }
+header { margin-bottom: 12px; }
+h1 { font-size: 19px; margin: 0 0 4px; }
+h2 { font-size: 15px; margin: 0 0 10px; }
+p { margin: 0 0 8px; }
+.card { border: 1px solid color-mix(in srgb, CanvasText 22%, transparent); border-radius: 12px; padding: 12px; margin-bottom: 12px; background: color-mix(in srgb, Canvas 94%, CanvasText 6%); }
+.active { border-width: 2px; }
+label { display: block; font-weight: 600; font-size: 13px; margin: 8px 0; }
+select, input, textarea { width: 100%; box-sizing: border-box; margin-top: 4px; padding: 8px; border-radius: 8px; border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); background: Canvas; color: CanvasText; }
+.grid { display: grid; grid-template-columns: 1.2fr 1fr .8fr; gap: 8px; align-items: end; }
+.actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+button { border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); background: Canvas; color: CanvasText; border-radius: 999px; padding: 8px 10px; cursor: pointer; font-weight: 600; }
+button.primary { background: CanvasText; color: Canvas; }
+button.paused { outline: 2px solid currentColor; }
+.timer { font-size: 38px; font-weight: 800; letter-spacing: .04em; margin: 8px 0; }
+.stepText { font-weight: 700; line-height: 1.35; }
+.hint { font-size: 12px; opacity: .78; line-height: 1.35; }
+.hint.paused { opacity: 1; font-weight: 700; }
+.suggestion { border-top: 1px solid color-mix(in srgb, CanvasText 18%, transparent); padding-top: 8px; margin-top: 8px; }
+.suggestion p { font-size: 12px; line-height: 1.35; }
+.progressList { max-height: 220px; overflow: auto; font-size: 12px; }
+.progressItem { display: grid; grid-template-columns: 48px 1fr 72px; gap: 8px; border-top: 1px solid color-mix(in srgb, CanvasText 14%, transparent); padding: 6px 0; }
+.progressItem strong { font-size: 12px; }
+textarea { height: 160px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; }

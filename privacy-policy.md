@@ -1,26 +1,13 @@
 # Privacy Policy for Time Management by O'Neal
 
-Effective Date: June 17, 2026
+Effective Date: July 18, 2026
 
-Time Management by O'Neal is a Chrome extension that helps the user time workflow steps, pause and resume timing, switch between condensed and detailed modes, and create a local report that can be copied into ChatGPT.
+Time Management by O'Neal is a local workflow timing extension. It records workflow step timing, pause/resume activity, skipped/completed steps, selected mode, and locally generated productivity reports.
 
-## Data stored
+The extension stores this data locally using Chrome extension storage. It does not sell user data, transfer user data to third parties, use data for advertising, or use data to determine creditworthiness or for lending purposes.
 
-The extension stores workflow timing activity locally in the user's browser using Chrome extension storage. This may include step progress, pause/resume data, skipped/completed steps, selected mode, and locally generated report text.
+The extension does not collect passwords, authentication codes, financial information, health information, personal communications, location, web history, or website content.
 
-## Data not collected
+The extension opens https://j03.page/time-management-by-oneal-gpl3/ when first installed but does not request host permissions and does not read that webpage.
 
-The extension does not intentionally collect passwords, authentication codes, financial information, health information, email contents, messages, location, web browsing history, or website content.
-
-## Data sharing
-
-The extension does not sell user data, transfer user data to third parties, use user data for advertising, or use user data to determine creditworthiness or lending eligibility.
-
-## Source text encryption note
-
-Some workflow text in the source code may be stored in encrypted form to reduce casual viewing on GitHub. This does not change the extension's data practices. The encryption key may be included in the source so the extension can run.
-
-## Contact
-
-Jeremiah O'Neal
-Website: https://j03.page/
+Contact: Jeremiah O'Neal via https://j03.page/

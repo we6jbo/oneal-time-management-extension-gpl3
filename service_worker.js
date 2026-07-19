@@ -1,5 +1,4 @@
-import { decryptWorkflowConfig } from './encrypted_workflow.js';
-
+importScripts('encrypted_workflow.js');
 const TARGET_URL = 'https://j03.page/time-management-by-oneal-gpl3/';
 
 chrome.runtime.onInstalled.addListener(async ({ reason }) => {
@@ -19,7 +18,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   }
   if (message?.type === 'ENSURE_DEFAULTS') {
-    ensureDefaults().then(() => sendResponse({ ok: true })).catch((error) => sendResponse({ ok: false, error: String(error) }));
+    ensureDefaults().then(() => sendResponse({ ok: true }));
+    return true;
+  }
+  if (message?.type === 'RESET_CONFIG') {
+    chrome.storage.local.remove('otmConfig').then(ensureDefaults).then(() => sendResponse({ ok: true }));
     return true;
   }
   return false;
@@ -27,11 +30,23 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 async function ensureDefaults() {
   const existing = await chrome.storage.local.get(['otmConfig', 'otmSessions']);
-  if (!existing.otmConfig || (existing.otmConfig.schemaVersion || 0) < 3) {
-    const config = await decryptWorkflowConfig();
-    await chrome.storage.local.set({ otmConfig: config });
+  if (!existing.otmConfig || (existing.otmConfig.schemaVersion || 0) < 5) {
+    await chrome.storage.local.set({ otmConfig: defaultConfig() });
   }
   if (!existing.otmSessions) {
     await chrome.storage.local.set({ otmSessions: [] });
   }
+}
+
+function defaultConfig() {
+  return decodeWorkflow();
+}
+
+function decodeWorkflow() {
+  const cipherText = atob(ENCRYPTED_WORKFLOW_B64);
+  let output = '';
+  for (let i = 0; i < cipherText.length; i++) {
+    output += String.fromCharCode(cipherText.charCodeAt(i) ^ WORKFLOW_KEY.charCodeAt(i % WORKFLOW_KEY.length));
+  }
+  return JSON.parse(output);
 }

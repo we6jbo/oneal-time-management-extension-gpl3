@@ -1,32 +1,16 @@
 # Chrome Web Store Listing Draft
 
-## Name
-Time Management by O'Neal
+Name: Time Management by O'Neal
 
-## Short description
-Time a detailed or condensed workflow and copy a ChatGPT-ready improvement report.
+Short description: Local workflow timer that creates ChatGPT-ready productivity reports.
 
-## Detailed description
-Time Management by O'Neal helps users measure a long workflow in either condensed or detailed mode. It can open the workflow page at `https://j03.page/time-management-by-oneal-gpl3/` and provides a pinned-extension popup for timing each step.
+Single purpose: Time Management by O'Neal helps the user time a Fall 2026 productivity and job-search workflow, pause and resume steps, change session date/time using a coded hour selector, and export a local report that can be copied into ChatGPT for productivity suggestions.
 
-The extension stores timing records locally and can generate a report that the user can manually copy into ChatGPT. The report includes the workflow mode, detected or manually entered date and time, finished step timings, skipped steps, and improvement notes.
+Category: Productivity
 
-This extension is designed for productivity measurement. It does not store passwords, authentication codes, cookies, or private email content. It does not bypass login, MFA, or Chrome permission prompts.
+Permissions justification:
+- Storage: Saves timer state, workflow step progress, selected mode, pause/resume information, completed/skipped steps, and locally generated reports. Data remains local in the user's browser.
 
-## Single purpose
-This extension measures the time required to complete a personal workflow and produces a local, user-controlled improvement report.
+Remote code justification: The extension does not use remote code. All JavaScript, HTML, CSS, images, and logic are included in the submitted package.
 
-## Permission justification
-- Storage: saves workflow configuration and local timing records.
-
-## Suggested category
-Productivity
-
-
-## Beta publishing notes
-
-Recommended Chrome Web Store settings for a beta: set visibility to Private or Unlisted, provide a clear single-purpose description, list only the permission actually used, and include the privacy policy URL. This extension is designed to store timing/session data locally and not collect passwords, authentication codes, cookies, or email content.
-
-## Permission justification draft
-
-- storage: saves timer settings, workflow steps, and local session history.
+Data disclosure: Select User activity only. Do not select PII, health, financial/payment, authentication information, personal communications, location, web history, or website content.
